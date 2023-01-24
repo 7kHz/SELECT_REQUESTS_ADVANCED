@@ -33,8 +33,9 @@ JOIN the_genre tg ON gl.genre_id = tg.genre_id
 GROUP BY a.name
 HAVING COUNT(*) > 1;
 
---SELECT t.name FROM collectionstracks c
---RIGHT JOIN tracks t ON c.track_id NOT  IN  (t.track_id);
+SELECT t. name FROM tracks t 
+LEFT JOIN collectionstracks c ON t.track_id = c.track_id 
+WHERE c.track_id IS NULL;
 
 SELECT al.name FROM artist_lists al
 JOIN artist_listsalbums al2 ON al.artist_list_id = al2.artist_list_id 
